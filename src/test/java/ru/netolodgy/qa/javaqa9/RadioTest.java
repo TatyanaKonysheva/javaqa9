@@ -18,13 +18,61 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSeyVolume() {
-        Radio voulume = new Radio();
+    public void shouldSetOverRadioStation() {
+        Radio station = new Radio();
 
-        voulume.setCurrentVolume(50);
+        station.setCurrentRadioStation(13);
+
+        int expected = 0;
+        int actual = station.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetLessRadioStation() {
+        Radio station = new Radio();
+
+        station.setCurrentRadioStation(-13);
+
+        int expected = 0;
+        int actual = station.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetVolume() {
+        Radio volume = new Radio();
+
+        volume.setCurrentVolume(50);
 
         int expected = 50;
-        int actual = voulume.getCurrentVolume();
+        int actual = volume.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetOverVolume() {
+        Radio volume = new Radio();
+
+        volume.setCurrentVolume(150);
+
+        int expected = 0;
+        int actual = volume.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetLessVolume() {
+        Radio volume = new Radio();
+
+        volume.setCurrentVolume(-50);
+
+        int expected = 0;
+        int actual = volume.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -56,8 +104,9 @@ public class RadioTest {
     @Test
     public void shouldToNextRadioStation() {
         Radio station = new Radio();
+        station.setCurrentRadioStation(8);
 
-        station.nextRadioStation(8);
+        station.nextRadioStation();
 
         int expected = 9;
         int actual = station.getCurrentRadioStation();
@@ -68,8 +117,9 @@ public class RadioTest {
     @Test
     public void shouldZeroToNextRadioStation() {
         Radio station = new Radio();
+        station.setCurrentRadioStation(9);
 
-        station.nextRadioStation(9);
+        station.nextRadioStation();
 
         int expected = 0;
         int actual = station.getCurrentRadioStation();
@@ -81,8 +131,9 @@ public class RadioTest {
     @Test
     public void shouldToPrevRadioStation() {
         Radio station = new Radio();
+        station.setCurrentRadioStation(9);
 
-        station.prevRadioStation(9);
+        station.prevRadioStation();
 
         int expected = 8;
         int actual = station.getCurrentRadioStation();
@@ -93,8 +144,9 @@ public class RadioTest {
     @Test
     public void shouldNaneToPrevRadioStation() {
         Radio station = new Radio();
+        station.setCurrentRadioStation(0);
 
-        station.prevRadioStation(-1);
+        station.prevRadioStation();
 
         int expected = 9;
         int actual = station.getCurrentRadioStation();
@@ -127,7 +179,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetIncreaseVolume() {
+    public void shouldIncreaseVolume() {
         Radio volume = new Radio();
 
         volume.increaseVolume(0);
@@ -139,7 +191,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetStopIncreaseVolume() {
+    public void shouldStopIncreaseVolume() {
         Radio volume = new Radio();
 
         volume.increaseVolume(100);
@@ -151,7 +203,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetDecreaseVolume() {
+    public void shouldDecreaseVolume() {
         Radio volume = new Radio();
 
         volume.decreaseVolume(99);
@@ -163,7 +215,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetStopDecreaseVolume() {
+    public void shouldStopDecreaseVolume() {
         Radio volume = new Radio();
 
         volume.decreaseVolume(-1);
