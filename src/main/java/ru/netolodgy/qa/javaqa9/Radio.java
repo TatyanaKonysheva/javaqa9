@@ -1,14 +1,19 @@
 package ru.netolodgy.qa.javaqa9;
 
 public class Radio {
-    public int currentRadioStation;
-    public int currentVolume;
+    private int currentRadioStation;
+    private int currentVolume;
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
+
     public int getCurrentVolume() {
         return currentVolume;
+    }
+
+    public void setCurrentRadioStation(int newCurrentRadioStation) {
+        currentRadioStation = newCurrentRadioStation;
     }
 
     public void setToMinRadioStation() {
@@ -19,7 +24,7 @@ public class Radio {
         currentRadioStation = 9;
     }
 
-    public void setToNextRadioStation(int newRadioStation) {
+    public void nextRadioStation(int newRadioStation) {
         if (newRadioStation < 9) {
             currentRadioStation = newRadioStation + 1;
         } else {
@@ -27,12 +32,16 @@ public class Radio {
         }
     }
 
-    public void setToPrevRadioStation(int newRadioStation) {
+    public void prevRadioStation(int newRadioStation) {
         if (newRadioStation > 0) {
             currentRadioStation = newRadioStation - 1;
         } else {
             currentRadioStation = 9;
         }
+    }
+
+    public void setCurrentVolume(int newCurrentVolume) {
+        currentVolume = newCurrentVolume;
     }
 
     public void setToMinVolume() {
@@ -43,7 +52,7 @@ public class Radio {
         currentVolume = 99;
     }
 
-    public void setIncreaseVolume(int newVolume) {
+    public void increaseVolume(int newVolume) {
         if (newVolume < 100) {
             currentVolume = newVolume + 1;
         } else {
@@ -51,13 +60,12 @@ public class Radio {
         }
     }
 
-    public void setDecreaseVolume(int newVolume) {
+    public void decreaseVolume(int newVolume) {
         if (newVolume > 0) {
             currentVolume = newVolume - 1;
         } else {
             currentVolume = 0;
         }
     }
-
 
 }
