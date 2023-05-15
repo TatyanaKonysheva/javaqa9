@@ -1,7 +1,6 @@
 package ru.netolodgy.qa.javaqa9;
 
 public class Radio {
-    public int setCurrentVolume;
     private int minRadioStation = 0;
     private int amountRadioStation = 10;
     private int maxRadioStation = amountRadioStation - 1;
