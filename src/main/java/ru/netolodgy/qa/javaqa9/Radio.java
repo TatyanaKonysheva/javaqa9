@@ -4,8 +4,8 @@ public class Radio {
     public int setCurrentVolume;
     private int minRadioStation = 0;
     private int amountRadioStation = 10;
-    int maxRadioStation = amountRadioStation - 1;
-    int currentRadioStation = minRadioStation;
+    private int maxRadioStation = amountRadioStation - 1;
+    private int currentRadioStation = minRadioStation;
     private int minVolume = 0;
     private int maxVolume = 99;
     private int currentVolume = minVolume;
